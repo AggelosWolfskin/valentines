@@ -1,0 +1,9 @@
+<div *ngIf="!showCelebration" class="app-container">
+  <app-valentine-prompt (yesClicked)="onYesClicked()"></app-valentine-prompt>
+</div>
+
+<div *ngIf="showCelebration" class="app-container">
+  <app-celebration></app-celebration>
+</div>
+
+

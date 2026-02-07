@@ -1,0 +1,41 @@
+<div class="valentine-container">
+  <div class="valentine-content">
+    <img src="assets/romantic-image.png" alt="Romantic" class="romantic-image" />
+
+    <div class="question-section">
+      <h1>Will you be my Valentine? 💕</h1>
+
+      <div class="buttons-container">
+        <!-- Yes Button -->
+        <button
+          class="yes-button"
+          (click)="onYesClick()"
+          [style.transform]="'scale(' + yesButtonScale + ')'"
+        >
+          Yes ❤️
+        </button>
+
+        <!-- No Button (Regular or Transformed) -->
+        <button
+          *ngIf="!noButtonTransformed"
+          class="no-button"
+          [ngClass]="{ 'fixed-position': useFixedPositioning }"
+          (mouseenter)="onNoButtonHover()"
+          [style.left]="useFixedPositioning ? noButtonX + 'px' : 'auto'"
+          [style.top]="useFixedPositioning ? noButtonY + 'px' : 'auto'"
+        >
+          No 😢
+        </button>
+
+        <!-- Forced Yes Button (After No is escaped) -->
+        <button
+          *ngIf="noButtonTransformed"
+          class="forced-yes-button"
+          (click)="onYesClick()"
+        >
+          {{ getForcedYesText() }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
